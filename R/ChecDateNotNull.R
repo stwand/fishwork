@@ -6,10 +6,12 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' df <- iris
-#' try(ChecDateNotNull(df))
+#' ChecDateNotNull(df)
 #' df <- df[df$Species=="any"]
-#' try(ChecDateNotNull(df))
+#' ChecDateNotNull(df)
+#' }
 ChecDateNotNull <- function(x) { # Срабатывает если таблица не пустая
   name.var <- deparse(substitute(x))
   checkmate::assertNumeric(nrow(x)

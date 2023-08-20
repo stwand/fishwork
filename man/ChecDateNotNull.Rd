@@ -20,8 +20,10 @@ ChecDateNotNull(x)
 Checking a table for rows
 }
 \examples{
+\dontrun{
 df <- iris
-try(ChecDateNotNull(df))
+ChecDateNotNull(df)
 df <- df[df$Species=="any"]
-try(ChecDateNotNull(df))
+ChecDateNotNull(df)
+}
 }

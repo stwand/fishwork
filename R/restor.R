@@ -6,10 +6,12 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' x <- 1:100
-#' try(back(x))
+#' back(x)
 #' rm(x)
-#' try(restore(x))
+#' restore(x)
+#' }
 restor <- function(x) {
   name.var <- deparse(substitute(x))
   assign(name.var

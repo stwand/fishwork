@@ -18,8 +18,10 @@ backup variable
 Restoring a variable from a backup
 }
 \examples{
+\dontrun{
 x <- 1:100
-try(back(x))
+back(x)
 rm(x)
-try(restore(x))
+restore(x)
+}
 }

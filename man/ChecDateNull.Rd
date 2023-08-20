@@ -20,9 +20,11 @@ ChecDateNull(x)
 Empty table
 }
 \examples{
+\dontrun{
 df <- iris
-try(ChecDateNull(df))
+ChecDateNull(df)
 df <- df[df$Species=="any"]
-try(ChecDateNull(df))
+ChecDateNull(df)
+}
 
 }

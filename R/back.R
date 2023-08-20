@@ -6,9 +6,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' x <- 1:100
-#' try(back(x))
-#'
+#' back(x)
+#'}
 back <- function(x) {
   if (!dir.exists(this.path::here("back"))){
     dir.create(this.path::here("back"))

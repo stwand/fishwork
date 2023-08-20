@@ -18,7 +18,8 @@ The variable itself is stored in the directory "back". If there is none, it crea
 Backup variable during development
 }
 \examples{
+\dontrun{
 x <- 1:100
-try(back(x))
-
+back(x)
+}
 }

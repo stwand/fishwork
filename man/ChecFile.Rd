@@ -17,3 +17,12 @@ Stops the script if there is no file
 \description{
 File Existence
 }
+\examples{
+\dontrun{
+file <- tempfile()
+ChecFile(file)
+file <- "any.rds"
+ChecFile(file)
+}
+
+}
