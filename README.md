@@ -18,6 +18,10 @@ I hope that over time, the number of functions will increase.
 
 Over time, instructions will appear here.
 
+``` r
+devtools::install_github("stwand/fishwork")
+```
+
 ## Example
 
 Examples are not everywhere. I know how to use it, third-party use does
