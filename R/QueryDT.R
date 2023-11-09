@@ -3,6 +3,7 @@
 #' @param con - Connect
 #' @param file.sql - Request file
 #' @param folder.sql - Request folder. Default "sql"
+#' @param conv - Convert result
 #'
 #' @return Same as DBI::dbGetQuery but with logging and returns data.table
 #' @export
@@ -26,7 +27,7 @@ QueryDT <- function(con,file.sql,folder.sql="sql",conv=FALSE) {
   if (conv==FALSE) {
     df
     } else {
-      df[,lapply(.SD,\(x) {if(is.character(x)) iconv(x,"CP1251") else x})]
+      df[,lapply(data.table::.SD,\(x) {if(is.character(x)) iconv(x,"CP1251") else x})]
       
     }
 }

@@ -4,7 +4,7 @@
 \alias{QueryDT}
 \title{Send query, retrieve results and then clear result set}
 \usage{
-QueryDT(con, file.sql, folder.sql = "sql")
+QueryDT(con, file.sql, folder.sql = "sql", conv = FALSE)
 }
 \arguments{
 \item{con}{\itemize{
@@ -17,6 +17,10 @@ QueryDT(con, file.sql, folder.sql = "sql")
 
 \item{folder.sql}{\itemize{
 \item Request folder. Default "sql"
+}}
+
+\item{conv}{\itemize{
+\item Convert result
 }}
 }
 \value{
