@@ -4,12 +4,12 @@
 #' @param file.sql - Request file
 #' @param folder.sql - Request folder. Default "sql"
 #' @param conv - Convert result
-#'
+#' @param enc.conv - Encoding from which
 #' @return Same as DBI::dbGetQuery but with logging and returns data.table
 #' @export
 #'
 #'
-QueryDT <- function(con,file.sql,folder.sql="sql",conv=FALSE) {
+QueryDT <- function(con,file.sql,folder.sql="sql",conv=FALSE,enc.conv="CP1251") {
   checkmate::assertFileExists(this.path::here(folder.sql,file.sql),
                               extension = NULL
                               ,.var.name = futile.logger::flog.error(glue::glue("File {folder.sql} is missing or folder {folder.sql} is incorrect")))
@@ -27,7 +27,7 @@ QueryDT <- function(con,file.sql,folder.sql="sql",conv=FALSE) {
   if (conv==FALSE) {
     df
     } else {
-      df[,lapply(.SD,\(x) {if(is.character(x)) iconv(x,"CP1251") else x})]
+      df[,lapply(.SD,\(x) {if(is.character(x)) iconv(x,enc.conv) else x})]
       
     }
 }
