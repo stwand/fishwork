@@ -27,7 +27,7 @@ QueryDT <- function(con,file.sql,folder.sql="sql",conv=FALSE) {
   if (conv==FALSE) {
     df
     } else {
-      df[,lapply(data.table::.SD,\(x) {if(is.character(x)) iconv(x,"CP1251") else x})]
+      df[,lapply(.SD,\(x) {if(is.character(x)) iconv(x,"CP1251") else x})]
       
     }
 }
