@@ -4,7 +4,7 @@
 \alias{QueryDT}
 \title{Send query, retrieve results and then clear result set}
 \usage{
-QueryDT(con, file.sql, folder.sql = "sql", conv = FALSE)
+QueryDT(con, file.sql, folder.sql = "sql", conv = FALSE, enc.conv = "CP1251")
 }
 \arguments{
 \item{con}{\itemize{
@@ -21,6 +21,10 @@ QueryDT(con, file.sql, folder.sql = "sql", conv = FALSE)
 
 \item{conv}{\itemize{
 \item Convert result
+}}
+
+\item{enc.conv}{\itemize{
+\item Encoding from which
 }}
 }
 \value{
