@@ -7,7 +7,8 @@
 #' @param enc.conv - Encoding from which
 #' @return Same as DBI::dbGetQuery but with logging and returns data.table
 #' @export
-#'
+#' 
+#' @import data.table
 #'
 QueryDT <- function(con,file.sql,folder.sql="sql",conv=FALSE,enc.conv="CP1251") {
   checkmate::assertFileExists(this.path::here(folder.sql,file.sql),
@@ -24,10 +25,7 @@ QueryDT <- function(con,file.sql,folder.sql="sql",conv=FALSE,enc.conv="CP1251") 
   })
   checkmate::assertTRUE(data.table::is.data.table(df)
                         ,.var.name=futile.logger::flog.error(glue::glue("Disruption of data delivery")))
-  if (conv==FALSE) {
-    df
-    } else {
-      df[,lapply(data.table::.SD,\(x) {if(is.character(x)) iconv(x,enc.conv) else x})]
-      
+  if (conv==FALSE) {df} else {
+    df[,lapply(.SD,\(x) {if(is.character(x)) iconv(x,enc.conv) else x})]
     }
 }
