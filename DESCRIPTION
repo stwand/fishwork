@@ -1,13 +1,13 @@
 Package: fishwork
 Title: Fish of the main functions used in the work constantly
-Version: 0.0.1.000
+Version: 0.0.1.001
 Authors@R: 
     person("I.", "L.", , "ivsldisk@gmail.com", role = c("aut", "cre"))
 Description: Fish of the main functions used in the work constantly.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Imports: 
     checkmate,
     data.table,
@@ -17,4 +17,5 @@ Imports:
     lubridate,
     qs,
     readr,
-    this.path
+    this.path,
+    microbenchmark
