@@ -4,6 +4,8 @@
 #' @param unit - units of time
 #'
 #' @return - absent
+#' @export
+#'
 
 sys_sleep <- function(val, unit = c("s", "ms", "us", "ns")) {
   start_time <- microbenchmark::get_nanotime()
