@@ -27,10 +27,12 @@ read_dtv <- function(file_path
   if (is.na(head_nm_fl)==FALSE) {
     shap <- openxlsx::read.xlsx(head_nm_fl)
     data.table::setDT(shap)
-    data.table::setnames(shap,old = c(nm_old,nm_new,nm_type_var)
-                         ,new=c("old","new","type_var"))
+    data.table::setnames(shap,old = c(nm_old,nm_new)
+                         ,new=c("old","new"))
     idx <- 1
     if (type_var==TRUE) {
+      data.table::setnames(shap,old = c(nm_type_var)
+                           ,new=c("type_var"))
       tp_str <- lapply(shap[,.SD,.SDcols=c("type_var")],\(x) x)
       tp_str <- unlist(unname(tp_str))
       tp_str <- lapply(tp_str,\(x) x)
