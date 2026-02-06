@@ -14,6 +14,7 @@ QueryDT <- function(con,file.sql,folder.sql="sql",conv=FALSE,enc.conv="CP1251") 
   checkmate::assertFileExists(this.path::here(folder.sql,file.sql),
                               extension = NULL
                               ,.var.name = futile.logger::flog.error(glue::glue("File {folder.sql} is missing or folder {folder.sql} is incorrect")))
+  
   df <- tryCatch({
     data.table::as.data.table(
       DBI::dbGetQuery(con
