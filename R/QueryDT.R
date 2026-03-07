@@ -22,10 +22,10 @@ QueryDT <- function(con,file.sql,folder.sql="sql",conv=FALSE,enc.conv="CP1251") 
   }, warning= function(w) {
     return(NA)
   },error= function(e) {
-    return(NA)
+    e$message
   })
   checkmate::assertTRUE(data.table::is.data.table(df)
-                        ,.var.name=futile.logger::flog.error(glue::glue("Disruption of data delivery")))
+                        , .var.name = futile.logger::flog.error(glue::glue("{df}\nDisruption of data delivery")))
   if (conv==FALSE) {df} else {
     df[,lapply(.SD,\(x) {if(is.character(x)) iconv(x,enc.conv) else x})]
     }
