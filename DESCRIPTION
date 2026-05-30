@@ -1,6 +1,6 @@
 Package: fishwork
 Title: Fish of the main functions used in the work constantly
-Version: 0.0.1.001
+Version: 0.0.1.020
 Authors@R: 
     person("I.", "L.", , "ivsldisk@gmail.com", role = c("aut", "cre"))
 Description: Fish of the main functions used in the work constantly.
@@ -16,6 +16,7 @@ Imports:
     glue,
     lubridate,
     qs,
+    qs2,
     readr,
     this.path,
     microbenchmark

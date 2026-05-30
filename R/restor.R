@@ -12,9 +12,20 @@
 #' rm(x)
 #' restore(x)
 #' }
-restor <- function(x) {
+restor <- function (x) {
   name.var <- deparse(substitute(x))
-  assign(name.var
-         ,qs::qread(glue::glue("{this.path::here('back')}/{name.var}.qs"))
-         ,envir = .GlobalEnv)
-}
+  tryCatch( {
+    assign(name.var, qs2::qs_read(glue::glue("{this.path::here('back')}/{name.var}.qs")), 
+           envir = .GlobalEnv)
+  }, warning= function(w) {
+    return(NA)
+  },error= function(e) {
+    x <- stringi::stri_detect_regex(e$message,"use qs::qread")
+    if (x==TRUE) {
+      assign(name.var, qs::qread(glue::glue("{this.path::here('back')}/{name.var}.qs")), 
+             envir = .GlobalEnv)
+    } else {e$message}
+  }
+  )
+} 
+

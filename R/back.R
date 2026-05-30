@@ -10,11 +10,13 @@
 #' x <- 1:100
 #' back(x)
 #'}
-back <- function(x) {
-  if (!dir.exists(this.path::here("back"))){
+back <- function (x) 
+{
+  if (!dir.exists(this.path::here("back"))) {
     dir.create(this.path::here("back"))
   }
   name.var <- deparse(substitute(x))
-  qs::qsave(x,glue::glue("{this.path::here('back')}/{name.var}.qs"))
+  qs2::qs_save(x, glue::glue("{this.path::here('back')}/{name.var}.qs"))
   name.var
 }
+
